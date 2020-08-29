@@ -1,7 +1,9 @@
 import React from 'react';
 import { MaterialIcons, MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 
-import colors from '../../styles/colors';
+import { useSwitchTheme } from '../../context/SwitchTheme';
+
+import SwitchThemes from '../../components/SwitchThemes';
 
 import { 
   Container, 
@@ -12,13 +14,16 @@ import {
 } from './styles';
 
 const Header: React.FC = () => {
+  const { colors } = useSwitchTheme();
+
   return (
     <Container>
-      <Avatar>
-        <OnlineStatus />
+      <Avatar colors={colors}>
+        <OnlineStatus colors={colors} />
       </Avatar>
 
       <RightSide>
+        <SwitchThemes />
         <Button>
           <MaterialIcons 
             name="notifications-none"

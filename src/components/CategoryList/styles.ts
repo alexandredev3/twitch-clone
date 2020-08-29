@@ -1,6 +1,16 @@
 import styled from 'styled-components/native';
 
-import colors from '../../styles/colors';
+interface Props {
+  colors: {
+    primary: string;
+    black: string;
+    gray: string;
+    tag: string;
+    green: string;
+    red: string;
+    purple: string;
+  };
+}
 
 const activeOpacityValue = { activeOpacity: 0.7 };
 
@@ -20,10 +30,10 @@ export const CategoryImage = styled.Image`
   height: 130px;
 `;
 
-export const CategoryName = styled.Text`
+export const CategoryName = styled.Text<Props>`
   margin-top: 5px;
   max-width: 98px;
-  color: ${colors.black};
+  color: ${props => props.colors.black};
   font-family: roboto_700;
   font-size: 13.5px;
 `;
@@ -33,8 +43,8 @@ export const CategoryStatus = styled.View`
   align-items: center;
 `;
 
-export const RedCircle = styled.View`
-  background: ${colors.red};
+export const RedCircle = styled.View<Props>`
+  background: ${props => props.colors.red};
   width: 9px;
   height: 9px;
   border-radius: 4.5px;
@@ -42,10 +52,10 @@ export const RedCircle = styled.View`
   height, para ficar redondo. */
 `;
 
-export const Info = styled.Text`
+export const Info = styled.Text<Props>`
   margin-left: 4px;
   padding-bottom: 1px;
-  color: ${colors.gray};
+  color: ${props => props.colors.gray};
   font-family: roboto_500;
 `;
 

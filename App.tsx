@@ -8,6 +8,8 @@ import {
   useFonts,
 } from '@expo-google-fonts/roboto';
 
+import { ThemeSwitchProvider } from './src/context/SwitchTheme';
+
 import { Routes } from './src/routes';
 
 export default function App() {
@@ -22,10 +24,10 @@ export default function App() {
   }
 
   return (
-    <>
+    <ThemeSwitchProvider>
       <Routes />
       <StatusBar style="light" />
-    </>
+    </ThemeSwitchProvider>
   );
 }
 

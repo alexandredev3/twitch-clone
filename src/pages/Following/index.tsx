@@ -1,6 +1,5 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { View, FlatList } from 'react-native';
-import { ThemeProvider } from 'styled-components';
 
 import Header from '../../components/Header';
 import Heading from '../../components/Heading';
@@ -9,8 +8,10 @@ import CategoryList from '../../components/CategoryList';
 import StreamList from '../../components/StreamList';
 import ChannelList from '../../components/ChannelList';
 
-import { Wrapper, Container, Main } from './styles';
 
+import { useSwitchTheme } from '../../context/SwitchTheme';
+
+import { Wrapper, Container, Main } from './styles';
 
 interface Item {
   key: string;
@@ -19,7 +20,7 @@ interface Item {
 }
 
 export default function Following() {
-  const [theme, setTheme] = useState(false);
+  const { colors } = useSwitchTheme();
 
   const { data, indices } = useMemo(() => {
     const items: Item[] = [
@@ -78,7 +79,7 @@ export default function Following() {
 
 
   return (
-    <Wrapper>
+    <Wrapper colors={colors}>
       <Container>
         <Header />
 

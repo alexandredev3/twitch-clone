@@ -2,6 +2,8 @@ import React from 'react';
 
 import data from './data';
 
+import { useSwitchTheme } from '../../context/SwitchTheme';
+
 import { 
   List,
   CategoryContainer,
@@ -18,14 +20,15 @@ interface ItemProps {
 }
 
 const CategoryList: React.FC = () => {
+  const { colors } = useSwitchTheme();
 
   const CategoryItem: React.FC<ItemProps> = ({ item }) => (
     <CategoryContainer>
       <CategoryImage source={item.source} />
-      <CategoryName numberOfLines={1}>{ item.name }</CategoryName>
+      <CategoryName colors={colors} numberOfLines={1}>{ item.name }</CategoryName>
       <CategoryStatus>
-        <RedCircle />
-        <Info>437.5K</Info>
+        <RedCircle colors={colors} />
+        <Info colors={colors} >437.5K</Info>
       </CategoryStatus>
     </CategoryContainer>
   );

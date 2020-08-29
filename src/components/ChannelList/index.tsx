@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text } from 'react-native';
 
+import { useSwitchTheme } from '../../context/SwitchTheme';
+
 import { 
   List,
   ChannelContainer,
@@ -14,19 +16,21 @@ import {
 } from './styles';
 
 const ChannelList: React.FC = () => {
+  const { colors } = useSwitchTheme();
+
   const ChannelItem = () => {
     return (
       <ChannelContainer>
         <LeftSide>
-          <Avatar />
+          <Avatar colors={colors} />
           <Column>
-            <Username>rocketseat_oficial</Username>
-            <Info>36 views videos</Info>
+            <Username colors={colors} >rocketseat_oficial</Username>
+            <Info colors={colors} >36 views videos</Info>
           </Column>
         </LeftSide>
 
         <RightSide>
-          <WhiteCircle />
+          <WhiteCircle colors={colors} />
         </RightSide> 
       </ChannelContainer>
     );

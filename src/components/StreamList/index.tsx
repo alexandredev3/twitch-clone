@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text } from 'react-native';
 
 import streamThumbnail from '../../images/stream_thumbnail.jpg'
+
+import { useSwitchTheme } from '../../context/SwitchTheme';
 
 import { 
   List,
@@ -20,6 +21,8 @@ import {
 } from './styles';
 
 const StreamList: React.FC = () => {
+  const { colors } = useSwitchTheme();
+
   const StreamItem = () => {
     return (
       <StreamContainer>
@@ -28,27 +31,27 @@ const StreamList: React.FC = () => {
         <StreamColumn>
           <StreamRow>
             <StreamHeader>
-              <StreamAvatar />
-              <StreamUsername numberOfLines={1}>alexandredev</StreamUsername>
+              <StreamAvatar colors={colors} />
+              <StreamUsername colors={colors} numberOfLines={1}>alexandredev</StreamUsername>
             </StreamHeader>
 
-            <StreamDescription numberOfLines={1}>
+            <StreamDescription colors={colors} numberOfLines={1}>
               Front-end com Next.js, Chakra UI e GraphQL
             </StreamDescription>
 
-            <StreamCategory numberOfLines={1}>
+            <StreamCategory colors={colors} numberOfLines={1}>
               Science & Technology
             </StreamCategory>
           </StreamRow>
 
           <TagRow>
 
-            <TagView>
-              <TagText>Portuguese</TagText>
+            <TagView colors={colors}>
+              <TagText colors={colors}>Portuguese</TagText>
             </TagView>
 
-            <TagView>
-              <TagText>WebDevelopment</TagText>
+            <TagView colors={colors}>
+              <TagText colors={colors}>WebDevelopment</TagText>
             </TagView>
             
           </TagRow>

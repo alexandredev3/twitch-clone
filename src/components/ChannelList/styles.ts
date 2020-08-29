@@ -1,6 +1,16 @@
 import styled, { css } from 'styled-components/native';
 
-import colors from '../../styles/colors';
+interface Props {
+  colors: {
+    primary: string;
+    black: string;
+    gray: string;
+    tag: string;
+    green: string;
+    red: string;
+    purple: string;
+  };
+}
 
 const activeOpacityValue = { activeOpacity: 0.7 };
 
@@ -22,8 +32,8 @@ export const LeftSide = styled.View`
   align-items: center;
 `;
 
-export const Avatar = styled.View`
-  background: ${colors.tag};
+export const Avatar = styled.View<Props>`
+  background: ${props => props.colors.tag};
   width: 48px;
   height: 48px;
   border-radius: 24px;
@@ -33,15 +43,15 @@ export const Column = styled.View`
   padding-left: 10px;
 `;
 
-export const Username = styled.Text`
-  color: ${colors.black};
+export const Username = styled.Text<Props>`
+  color: ${props => props.colors.black};
   font-family: roboto_500;
   font-size: 16px;
 `;
 
-export const Info = styled.Text`
+export const Info = styled.Text<Props>`
   margin-top: 1px;
-  color: ${colors.gray};
+  color: ${props => props.colors.gray};
   font-size: 13px;
 `;
 
@@ -49,8 +59,8 @@ export const RightSide = styled.View`
 
 `;
 
-export const WhiteCircle = styled.View`
-  background: ${colors.black};
+export const WhiteCircle = styled.View<Props>`
+  background: ${props => props.colors.black};
   width: 9px;
   height: 9px;
   border-radius: 4.5px;
